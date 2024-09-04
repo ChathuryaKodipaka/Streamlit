@@ -80,30 +80,3 @@ fig3.update_layout(
     paper_bgcolor='rgba(0,0,0,0)'
 )
 st.plotly_chart(fig3, use_container_width=True)
-
-# Display Statistical Summary
-st.subheader(f"Statistical Summary of {stock_symbol} Daily Returns")
-summary_df = ticker_df['Daily Returns'].describe().to_frame()
-
-# Apply custom styling to the DataFrame with a vibrant color scheme
-styled_summary = summary_df.style.format("{:.2f}") \
-    .background_gradient(cmap='Spectral') \
-    .set_properties(**{
-        'text-align': 'center', 
-        'color': '#ffffff', 
-        'background-color': '#003f5c',
-        'font-weight': 'bold',
-    }) \
-    .set_table_styles([
-        {
-            'selector': 'thead th',
-            'props': [('background-color', '#58508d'), ('color', '#ffffff'), ('font-weight', 'bold')]
-        },
-        {
-            'selector': 'tbody tr:hover',
-            'props': [('background-color', '#ff6361'), ('color', '#000000')]
-        }
-    ])
-
-# Convert the styled DataFrame to HTML and display it using st.markdown
-st.markdown(styled_summary.to_html(), unsafe_allow_html=True)

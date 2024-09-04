@@ -66,17 +66,4 @@ fig2.update_layout(
 )
 st.plotly_chart(fig2, use_container_width=True)
 
-# Display chart for Daily Returns
-ticker_df['Daily Returns'] = ticker_df['Close'].pct_change() * 100
-st.subheader(f"{stock_symbol} Daily Returns ({time_frame})")
-fig3 = go.Figure()
-fig3.add_trace(go.Scatter(x=ticker_df.index, y=ticker_df['Daily Returns'], mode='lines', name='Daily Returns', line=dict(color='#ff7f0e')))  # Orange
-fig3.update_layout(
-    title='Daily Returns (Volatility)', 
-    xaxis_title='Date', 
-    yaxis_title='Percentage Change (%)',
-    template='plotly_dark',
-    plot_bgcolor='rgba(0,0,0,0)',
-    paper_bgcolor='rgba(0,0,0,0)'
-)
-st.plotly_chart(fig3, use_container_width=True)
+

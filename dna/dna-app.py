@@ -12,7 +12,8 @@ from PIL import Image
 ######################
 
 # Load and display the DNA logo
-image = Image.open('dna-logo.jpg')
+
+image = Image.open('dna/dna-logo.jpg')
 st.image(image, use_column_width=True)
 
 st.write("""
